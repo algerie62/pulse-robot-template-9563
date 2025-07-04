@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -208,6 +209,15 @@ export function NewsReferencesSections({ section, language = "fr" }: NewsReferen
         </TabsList>
 
         <TabsContent value="codes" className="space-y-4">
+          <div className="text-center mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center justify-center gap-2">
+              <FileText className="w-5 h-5 text-green-600" />
+              Textes juridiques consolidés
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Codes consolidés avec dernières modifications
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
@@ -275,6 +285,15 @@ export function NewsReferencesSections({ section, language = "fr" }: NewsReferen
         </TabsContent>
 
         <TabsContent value="laws" className="space-y-4">
+          <div className="text-center mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center justify-center gap-2">
+              <FileText className="w-5 h-5 text-blue-600" />
+              Procédures administratives consolidées
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Procédures unifiées et simplifiées
+            </p>
+          </div>
           <div className="space-y-4">
             {[
               {
@@ -319,6 +338,15 @@ export function NewsReferencesSections({ section, language = "fr" }: NewsReferen
         </TabsContent>
 
         <TabsContent value="decrees" className="space-y-4">
+          <div className="text-center mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center justify-center gap-2">
+              <FileText className="w-5 h-5 text-purple-600" />
+              Générateur de Formulaires Avancé
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Création automatisée de documents juridiques
+            </p>
+          </div>
           <div className="space-y-4">
             {[
               {
