@@ -1,4 +1,6 @@
 
+import React from 'react';
+
 /**
  * Utilitaires d'optimisation des performances
  */
