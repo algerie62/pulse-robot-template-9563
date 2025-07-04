@@ -34,7 +34,7 @@ export function BreadcrumbNavigation({ currentSection, onSectionChange, language
         "legal-enrichment": "Alimentation de la Banque de Données",
         "legal-search": "Recherche",
         "procedures-catalog": "Catalogue des procédures administratives",
-        "procedures-enrichment": "Aimantation de la banque de données",
+        "procedures-enrichment": "Alimentation de la Banque de Données",
         "procedures-search": "Recherche",
         "procedures-resources": "Ressources",
         "dashboards": "Tableaux de Bord",

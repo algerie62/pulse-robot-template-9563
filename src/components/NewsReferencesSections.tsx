@@ -61,11 +61,11 @@ export function NewsReferencesSections({ section, language = "fr" }: NewsReferen
   const renderNews = () => (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
-          <Newspaper className="w-8 h-8 text-blue-600" />
+        <h2 className="text-2xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-2">
+          <Newspaper className="w-6 h-6 text-blue-600" />
           Actualités Juridiques Algériennes
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base">
           Suivez l'actualité juridique et les évolutions législatives en Algérie
         </p>
       </div>
@@ -190,11 +190,11 @@ export function NewsReferencesSections({ section, language = "fr" }: NewsReferen
   const renderLibrary = () => (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
-          <BookOpen className="w-8 h-8 text-green-600" />
+        <h2 className="text-2xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-2">
+          <BookOpen className="w-6 h-6 text-green-600" />
           Bibliothèque Juridique Algérienne
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base">
           Collection complète de ressources juridiques algériennes
         </p>
       </div>
@@ -403,11 +403,11 @@ export function NewsReferencesSections({ section, language = "fr" }: NewsReferen
   const renderDictionaries = () => (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
-          <Book className="w-8 h-8 text-purple-600" />
+        <h2 className="text-2xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-2">
+          <Book className="w-6 h-6 text-purple-600" />
           Dictionnaires Juridiques
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base">
           Terminologie juridique française-arabe et ressources linguistiques
         </p>
       </div>
@@ -736,11 +736,11 @@ export function NewsReferencesSections({ section, language = "fr" }: NewsReferen
     return (
       <div className="space-y-6">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
-            <Users className="w-8 h-8 text-orange-600" />
+          <h2 className="text-2xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-2">
+            <Users className="w-6 h-6 text-orange-600" />
             Annuaires Juridiques Algériens
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-base">
             Répertoire des institutions, professionnels et services juridiques
           </p>
         </div>
