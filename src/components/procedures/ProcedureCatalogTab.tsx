@@ -14,8 +14,8 @@ interface ProcedureCatalogTabProps {
 export function ProcedureCatalogTab({ onAddProcedure, onOpenApprovalQueue }: ProcedureCatalogTabProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTypeFilter, setActiveTypeFilter] = useState('Tous');
-  const [activeStatusFilter, setActiveStatusFilter] = useState('Statut');
-  const [activeDigitizationFilter, setActiveDigitizationFilter] = useState('Numérisation');
+  const [activeStatusFilter, setActiveStatusFilter] = useState('Tous');
+  const [activeDigitizationFilter, setActiveDigitizationFilter] = useState('Tous');
 
   const procedures = [
     {
@@ -54,16 +54,21 @@ export function ProcedureCatalogTab({ onAddProcedure, onOpenApprovalQueue }: Pro
   ];
 
   const typeFilters = ['Tous', 'Loi', 'Ordonnance', 'Décret', 'Arrêté', 'Instruction'];
-  const statusFilters = ['Statut', 'Validé', 'En cours', 'En attente'];
-  const digitizationFilters = ['Numérisation', 'Oui', 'Non', 'Partiellement'];
+  const statusFilters = ['Tous', 'En vigueur', 'Suspendu', 'Abrogé'];
+  const digitizationFilters = ['Tous', 'Oui', 'Non', 'Partiellement'];
 
   const filteredProcedures = procedures.filter(procedure => {
     const matchesSearch = procedure.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          procedure.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          procedure.category.toLowerCase().includes(searchTerm.toLowerCase());
     
-    const matchesStatus = activeStatusFilter === 'Statut' || procedure.status === activeStatusFilter;
-    const matchesDigitization = activeDigitizationFilter === 'Numérisation' || procedure.digitization === activeDigitizationFilter;
+    const matchesStatus = activeStatusFilter === 'Tous' || 
+      (activeStatusFilter === 'En vigueur' && procedure.status === 'Validé') ||
+      (activeStatusFilter === 'En cours' && procedure.status === 'En cours') ||
+      (activeStatusFilter === 'Suspendu' && procedure.status === 'Suspendu') ||
+      (activeStatusFilter === 'Abrogé' && procedure.status === 'Abrogé');
+    
+    const matchesDigitization = activeDigitizationFilter === 'Tous' || procedure.digitization === activeDigitizationFilter;
     
     return matchesSearch && matchesStatus && matchesDigitization;
   });
@@ -106,57 +111,66 @@ export function ProcedureCatalogTab({ onAddProcedure, onOpenApprovalQueue }: Pro
         </CardContent>
       </Card>
 
-      {/* Filtres de catégorie */}
+      {/* Filtres sous forme de boutons comme dans l'image */}
       <div className="space-y-4">
-        {/* Première ligne de filtres */}
-        <div className="flex gap-2">
-          {typeFilters.map((type) => (
-            <Button
-              key={type}
-              variant={activeTypeFilter === type ? "default" : "outline"}
-              onClick={() => setActiveTypeFilter(type)}
-              className={`rounded-full ${
-                activeTypeFilter === type 
-                  ? "bg-teal-600 hover:bg-teal-700 text-white" 
-                  : "bg-gray-100 hover:bg-gray-200 text-gray-700"
-              }`}
-            >
-              {type}
-            </Button>
-          ))}
+        {/* Filtre Type */}
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-medium text-gray-700 min-w-[50px]">Type</span>
+          <div className="flex gap-2">
+            {typeFilters.map((type) => (
+              <Button
+                key={type}
+                variant={activeTypeFilter === type ? "default" : "outline"}
+                onClick={() => setActiveTypeFilter(type)}
+                size="sm"
+                className={`rounded-full h-8 px-4 text-sm ${
+                  activeTypeFilter === type 
+                    ? "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600" 
+                    : "bg-white hover:bg-gray-50 text-gray-700 border-gray-300"
+                }`}
+              >
+                {type}
+              </Button>
+            ))}
+          </div>
         </div>
 
-        {/* Deuxième ligne de filtres - Status et Numérisation */}
-        <div className="flex gap-4">
-          {/* Filtre Statut */}
+        {/* Filtre Statut */}
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-medium text-gray-700 min-w-[50px]">Statut</span>
           <div className="flex gap-2">
             {statusFilters.map((status) => (
               <Button
                 key={status}
                 variant={activeStatusFilter === status ? "default" : "outline"}
                 onClick={() => setActiveStatusFilter(status)}
-                className={`rounded-full ${
+                size="sm"
+                className={`rounded-full h-8 px-4 text-sm ${
                   activeStatusFilter === status 
-                    ? "bg-teal-600 hover:bg-teal-700 text-white" 
-                    : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+                    ? "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600" 
+                    : "bg-white hover:bg-gray-50 text-gray-700 border-gray-300"
                 }`}
               >
                 {status}
               </Button>
             ))}
           </div>
+        </div>
 
-          {/* Filtre Numérisation */}
+        {/* Filtre Numérisation */}
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-medium text-gray-700 min-w-[50px]">Numérisation</span>
           <div className="flex gap-2">
             {digitizationFilters.map((digitization) => (
               <Button
                 key={digitization}
                 variant={activeDigitizationFilter === digitization ? "default" : "outline"}
                 onClick={() => setActiveDigitizationFilter(digitization)}
-                className={`rounded-full ${
+                size="sm"
+                className={`rounded-full h-8 px-4 text-sm ${
                   activeDigitizationFilter === digitization 
-                    ? "bg-teal-600 hover:bg-teal-700 text-white" 
-                    : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+                    ? "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600" 
+                    : "bg-white hover:bg-gray-50 text-gray-700 border-gray-300"
                 }`}
               >
                 {digitization}
